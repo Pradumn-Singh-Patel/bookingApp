@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
-import './Reserve.css'
 import useFetch from '../../hooks/useFetch';
 import {SearchContext} from '../../context/SearchContext'
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import './Reserve.css'
 // import { date } from 'date-fns/locale';
 
 function Reserve({setOpen, hotelId}) {

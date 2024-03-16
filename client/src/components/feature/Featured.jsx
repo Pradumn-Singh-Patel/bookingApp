@@ -3,19 +3,18 @@ import "./Featured.css";
 
 const Featured = () => {
   const {data, loading, error} = useFetch("/hotel/countByCity?cities=Delhi,Varanasi,Vns")
-  console.log('dataaaaaaaa',data)
   const featureItem = [
     {
-      img :"https://cf.bstatic.com/xdata/images/city/max500/957801.webp?k=a969e39bcd40cdcc21786ba92826063e3cb09bf307bcfeac2aa392b838e9b7a5&o=",
+      img :"https://cf.bstatic.com/xdata/images/city/600x600/684765.jpg?k=3f7d20034c13ac7686520ac1ccf1621337a1e59860abfd9cbd96f8d66b4fc138&o=",
       city : "Delhi"
     },
     {
-      img :"https://cf.bstatic.com/xdata/images/city/max500/690334.webp?k=b99df435f06a15a1568ddd5f55d239507c0156985577681ab91274f917af6dbb&o=",
+      img :"https://cf.bstatic.com/xdata/images/city/600x600/684730.jpg?k=e37b93d88c1fe12e827f10c9d6909a1def7349be2c68df5de885deaa4bc01ee3&o=",
       city : "Varanasi"
     },
     {
       img :"https://cf.bstatic.com/xdata/images/city/max500/689422.webp?k=2595c93e7e067b9ba95f90713f80ba6e5fa88a66e6e55600bd27a5128808fdf2&o=",
-      city : "Vns"
+      city : "Mumbai"
     }
   ]
   return (
