@@ -3,16 +3,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* background-size: cover; */
+    background: url('bg1.jpg') no-repeat fixed center;
   }
   
   .lContainer {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 231px;
+    height: 192px
   }
   
   .lInput{
-    height: 30px;
+    height: 12px;
+    /* width: 80%; */
     padding: 10px;
   }
   

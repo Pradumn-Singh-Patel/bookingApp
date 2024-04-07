@@ -52,6 +52,10 @@ const Header = ({ type }) => {
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
     navigate("/hotels", { state: { destination, dates, options } });
   };
+  
+  const handleLogin = ()=>{
+    navigate('/login')
+  }
 
   return (
     <div className="header">
@@ -91,7 +95,7 @@ const Header = ({ type }) => {
               Get rewarded for your travels – unlock instant savings of 10% or
               more with a free Lamabooking account
             </p>
-            {!user &&<button className="headerBtn">Sign in / Register</button>}
+            {!user &&<button className="headerBtn" onClick={handleLogin}>Sign in / Register</button>}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
@@ -99,7 +103,11 @@ const Header = ({ type }) => {
                   type="text"
                   placeholder="Where are you going?"
                   className="headerSearchInput"
-                  onChange={(e) => setDestination(e.target.value)}
+                  onChange={(e) => {
+                    
+                    let place = e.target.value
+                  return setDestination(place[0].toUpperCase() + place.toLowerCase().slice(1))}
+                  } 
                 />
               </div>
               <div className="headerSearchItem">
@@ -114,7 +122,8 @@ const Header = ({ type }) => {
                 {openDate && (
                   <DateRange
                     editableDateInputs={true}
-                    onChange={(item) => setDates([item.selection])}
+                    onChange={(item) => {
+                      return setDates([item.selection])}}
                     moveRangeOnFirstSelection={false}
                     ranges={dates}
                     className="date"

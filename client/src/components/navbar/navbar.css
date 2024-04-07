@@ -26,3 +26,7 @@
     color: #003580;
   }
   
+  .navItems{
+    display: flex;
+    flex-direction: row;
+  }
