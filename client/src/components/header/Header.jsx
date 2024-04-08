@@ -35,7 +35,7 @@ const Header = ({ type }) => {
   });
 
   const { user } = useContext(AuthContext);
-  
+
   const handleOption = (name, operation) => {
     setOptions((prev) => {
       return {
@@ -44,18 +44,18 @@ const Header = ({ type }) => {
       };
     });
   };
-  
-  const {dispatch} = useContext(SearchContext)
-  
+
+  const { dispatch } = useContext(SearchContext);
+
   const navigate = useNavigate();
   const handleSearch = () => {
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
     navigate("/hotels", { state: { destination, dates, options } });
   };
-  
-  const handleLogin = ()=>{
-    navigate('/login')
-  }
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
 
   return (
     <div className="header">
@@ -95,7 +95,11 @@ const Header = ({ type }) => {
               Get rewarded for your travels – unlock instant savings of 10% or
               more with a free Lamabooking account
             </p>
-            {!user &&<button className="headerBtn" onClick={handleLogin}>Sign in / Register</button>}
+            {!user && (
+              <button className="headerBtn" onClick={handleLogin}>
+                Sign in / Register
+              </button>
+            )}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
@@ -104,10 +108,11 @@ const Header = ({ type }) => {
                   placeholder="Where are you going?"
                   className="headerSearchInput"
                   onChange={(e) => {
-                    
-                    let place = e.target.value
-                  return setDestination(place[0].toUpperCase() + place.toLowerCase().slice(1))}
-                  } 
+                    let place = e.target.value;
+                    return setDestination(
+                      place[0].toUpperCase() + place.toLowerCase().slice(1)
+                    );
+                  }}
                 />
               </div>
               <div className="headerSearchItem">
@@ -123,7 +128,8 @@ const Header = ({ type }) => {
                   <DateRange
                     editableDateInputs={true}
                     onChange={(item) => {
-                      return setDates([item.selection])}}
+                      return setDates([item.selection]);
+                    }}
                     moveRangeOnFirstSelection={false}
                     ranges={dates}
                     className="date"
