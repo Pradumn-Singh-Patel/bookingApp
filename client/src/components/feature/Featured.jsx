@@ -1,8 +1,9 @@
 import useFetch from "../../hooks/useFetch";
+import { baseUrl } from "../../hooks/api";
 import "./Featured.css";
 
 const Featured = () => {
-  const {data, loading} = useFetch("/hotel/countByCity?cities=Delhi,Varanasi,Vns")
+  const {data, loading} = useFetch(`${baseUrl}/hotel/countByCity?cities=Delhi,Varanasi,Vns`)
   const featureItem = [
     {
       img :"https://cf.bstatic.com/xdata/images/city/600x600/684765.jpg?k=3f7d20034c13ac7686520ac1ccf1621337a1e59860abfd9cbd96f8d66b4fc138&o=",

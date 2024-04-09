@@ -16,6 +16,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { AuthContext } from "../../context/AuthContext";
 import Reserve from "../../components/reserve/Reserve";
+import { baseUrl } from "../../hooks/api";
 
 const Hotel = () => {
   const [slideNumber, setSlideNumber] = useState(0);
@@ -27,7 +28,7 @@ const Hotel = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
 
-  const { data, loading } = useFetch(`/hotel/find/${id}`);
+  const { data, loading } = useFetch(`${baseUrl}/hotel/find/${id}`);
 
   const photos = [
     {

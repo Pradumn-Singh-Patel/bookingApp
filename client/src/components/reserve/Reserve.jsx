@@ -5,11 +5,12 @@ import useFetch from "../../hooks/useFetch";
 import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../../hooks/api";
 import "./Reserve.css";
 // import { date } from 'date-fns/locale';
 
 function Reserve({ setOpen, hotelId }) {
-  const { data } = useFetch(`/hotel/room/${hotelId}`);
+  const { data } = useFetch(`${baseUrl}/hotel/room/${hotelId}`);
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { dates } = useContext(SearchContext);
 
@@ -28,7 +29,6 @@ function Reserve({ setOpen, hotelId }) {
   };
 
   const isAvailable = (roomNumber) => {
-    console.log("rommm ", roomNumber);
     const isFound = roomNumber.unavailableDates.some((date) =>
       alldates.includes(new Date(date).getTime())
     );
@@ -41,7 +41,6 @@ function Reserve({ setOpen, hotelId }) {
   const handleSelect = (e) => {
     const checked = e.target.checked;
     const value = e.target.value;
-    console.log("event ", checked, value);
     setSelectedRooms(
       checked
         ? [...selectedRooms, value]
@@ -55,7 +54,7 @@ function Reserve({ setOpen, hotelId }) {
     try {
       await Promise.all(
         selectedRooms?.map((roomId) => {
-          const res = axios.put(`/room/availability/${roomId}`, {
+          const res = axios.put(`${baseUrl}/room/availability/${roomId}`, {
             dates: alldates,
           });
           return res.data;

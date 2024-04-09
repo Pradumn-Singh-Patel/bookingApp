@@ -7,6 +7,7 @@ import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
 import useFetch from "../../hooks/useFetch";
+import { baseUrl } from "../../hooks/api";
 
 const List = () => {
   const location = useLocation();
@@ -18,7 +19,7 @@ const List = () => {
   const [max, setMax] = useState(undefined);
 
   const { data, loading, reFetch } = useFetch(
-    `/hotel?city=${destination}&min=${min || 0 }&max=${max || 999}`
+    `${baseUrl}/hotel?city=${destination}&min=${min || 0 }&max=${max || 999}`
   );
 
 

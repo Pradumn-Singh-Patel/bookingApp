@@ -1,8 +1,9 @@
+import { baseUrl } from "../../hooks/api";
 import useFetch from "../../hooks/useFetch";
 import "./FeaturedProperties.css";
 
 const FeaturedProperties = () => {
-  const { data, loading } = useFetch("/hotel?featured=true");
+  const { data, loading } = useFetch(`${baseUrl}/hotel?featured=true`);
 
   return (
     <div className="fp">

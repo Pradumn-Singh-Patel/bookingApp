@@ -4,7 +4,7 @@ import Header from '../../components/header/Header'
 import Featured from '../../components/feature/Featured'
 import './Home.css'
 import PropertyList from '../../components/propertyList/PropertyList'
-// import FeaturedProperties from '../../components/FeaturedProperties/FeaturedProperties'
+import FeaturedProperties from '../../components/FeaturedProperties/FeaturedProperties'
 import MailList from '../../components/mailList/MailList'
 import Footer from '../../components/footer/Footer'
 
@@ -21,7 +21,7 @@ const Home = () => {
           </h1>
           <PropertyList/>
           <h1 className="homeTitle">Frequent Booking</h1>
-        {/* <FeaturedProperties/> */}
+        <FeaturedProperties/>
         <MailList/>
         <Footer/>
         </div>
