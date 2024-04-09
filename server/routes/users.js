@@ -29,7 +29,7 @@ router.delete("/:id", verifyUser, deleteUser);
 router.get("/:id", verifyAdmin, getUser);
 
 // //GET ALL
-router.get("/", verifyAdmin, getUsers);
+// router.get("/", verifyAdmin, getUsers);
 // router.post('/',register)
 // router.post('/login',login)
 export default router
