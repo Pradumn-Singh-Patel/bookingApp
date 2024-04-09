@@ -98,8 +98,12 @@ export const createHotel = async (req, res, next) => {
   export const getHotelRooms = async (req, res, next) => {
     try {
       const hotel = await Hotel.findById(req.params.id);
+      if (!hotel) {
+        return res.status(404).json({ message: "Hotel not found" });
+      }
       const list = await Promise.all(
         hotel.rooms?.map((room) => {
+          console.log('room ',room)
           return Room.findById(room);
         })
       );
