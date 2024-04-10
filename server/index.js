@@ -12,7 +12,7 @@ const app=express()
 dotenv.config()
 app.use(cors({ 
   credentials: true, 
-  origin: "https://booking-app-steel-two.vercel.app/" 
+  origin: "https://booking-app-steel-two.vercel.app" 
 }));
 
 const connect= async ()=>{
