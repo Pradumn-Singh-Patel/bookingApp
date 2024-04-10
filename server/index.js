@@ -7,12 +7,12 @@ import hotelRoute from './routes/hotels.js'
 import roomRoute from './routes/rooms.js'
 import cookieParser from "cookie-parser";
 import cors from "cors";
-dotenv.config()
 
 const app=express()
+dotenv.config()
 app.use(cors({ 
   credentials: true, 
-  origin: "http://localhost:3000" 
+  origin: "https://booking-app-steel-two.vercel.app/" 
 }));
 
 const connect= async ()=>{
