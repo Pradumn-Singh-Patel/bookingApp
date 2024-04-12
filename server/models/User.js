@@ -39,3 +39,15 @@ const UserSchema = new mongoose.Schema(
 );
 
 export default mongoose.model("User", UserSchema);
+
+
+// {
+//   "username":"pradumn",
+//   "email":"pp@gmail.com",
+//   "country":"India",
+//   "img":"",
+//   "city":"Varanasi",
+//   "phone":"9876543211",
+//   "passowrd":"1234",
+//   "isAdmin":"true"
+// }
