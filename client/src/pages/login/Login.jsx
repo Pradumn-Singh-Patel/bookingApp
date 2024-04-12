@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { baseUrl } from "../../hooks/api";
 import "./Login.css";
 
 const Login = () => {
@@ -22,11 +23,11 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("/auth/login", credentials);
+      const res = await axios.post(`${baseUrl}/auth/login`, credentials);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.username });
       navigate("/")
     } catch (err) {
-      dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+      dispatch({ type: "LOGIN_FAILURE", payload: "Either username or password is incorrect" });
     }
   };
 

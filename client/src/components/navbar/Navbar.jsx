@@ -7,8 +7,8 @@ const Navbar = () => {
   const { user, dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    navigate("/login");
+  const handleLogin = (handler) => {
+    navigate(`/${handler}`);
   };
 
   const handleLogout = () => {
@@ -29,9 +29,9 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="navItems">
-            <button className="navButton">Register</button>
-            <button className="navButton" onClick={handleLogin}>
-              Login
+            <button className="navButton" onClick={()=>handleLogin('register')}>Register</button>
+            <button className="navButton" onClick={()=>handleLogin('login')}>
+              Sign in  
             </button>
           </div>
         )}
